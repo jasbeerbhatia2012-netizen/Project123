@@ -1,7 +1,6 @@
-# app.py
-def add_numbers(a, b):
-    """Simple function to add two numbers."""
-    return a + b
+# app.py (Modified to fail security scan)
+import os
 
-if __name__ == "__main__":
-    print(f"Result: {add_numbers(5, 7)}")
+def execute_command(user_input):
+    # Bandit will flag this as a critical security vulnerability (shell injection risk)
+    os.system(f"echo {user_input}") 
